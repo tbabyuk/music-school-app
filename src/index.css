@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --dcam-blue: #216dab;
+    --dcam-light-blue: #68ace3;
+    --dcam-green: #4aad52;
+    --dcam-orange: #e08e45;
+    --dcam-red: #eb5160;
+    --dcam-gray: #bfbfbf;
+    --dcam-white: #fdf5e6;
+}
+
+body {
+    background: #fdf5e6;
+}
+
+
+/* NAVBAR STYLING */
+
+.navbar-brand img {
+    width: 150px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+nav a.active {
+    text-transform: uppercase;
+    padding-bottom: 3px;
+}
+
+
+
+
+
+

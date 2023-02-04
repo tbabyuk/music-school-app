@@ -1,0 +1,37 @@
+
+
+.col-left {
+    border-right: 2px solid;
+}
+
+.btn-todo, .btn-inventory {
+    width: 85%;
+    height: 60px;
+    background: var(--dcam-green);
+}
+
+.btn-home {
+    height: 65px;
+    width: 80%;
+    color: #fdf5e6;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    background-color:hsl(125, 40%, 48%);
+}
+
+.btn-home:hover {
+    background-color:hsl(125, 40%, 50%);
+}
+
+
+
+/* ============================================== */
+
+/* MEDIA QUERIES FOR SMALL SCREENS */
+
+@media screen and (max-width: 992px) {
+    .col-left {
+        border-right: none;
+    }
+}

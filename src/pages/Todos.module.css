@@ -1,0 +1,110 @@
+
+
+/* FORM SECTION */
+.importance-container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.button-container button {
+    width: 100%;
+}
+
+
+/* MAIN SECTION */
+
+.todos-table {
+    margin-top: 20px;
+    background: #a9c4da;
+    border-radius: 10px;
+}
+
+.todos-table-header div {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    border: 1px solid white;
+}
+
+.todos-table-header .col:nth-child(2) {
+    border-right: 0;
+    border-left: 0;
+}
+
+.todos-table-content {
+    min-height: 60vh;
+}
+
+.todos-table-content div {
+    padding-top: 15px;
+    border: 1px solid white;
+    border-top: none;
+}
+
+.todos-table-content .col:nth-child(2) {
+    border-left: none;
+    border-right: none;
+}
+
+
+/* TO DO ITEMS STYLING */
+
+.to-do-item {
+    border: 1.5px solid white;
+    border-radius: 5px;
+    color: #eeeeee;
+    list-style-type: none;
+    padding: 5px 10px;
+    margin: 10px 0;
+    display: grid;
+    grid-template-columns: 80% 20%;
+    cursor: pointer;
+    overflow-wrap: break-word;
+}
+
+.todo-column, 
+.progress-column, 
+.completed-column {
+    overflow: hidden;
+    padding: 0 15px;
+}
+
+.edit:hover, 
+.delete:hover, 
+.move:hover {
+    rotate: 15deg;
+}
+
+
+/* UNIQUE STYLES */
+
+.completed-column li {
+    background-color: var(--dcam-green);
+    text-decoration: line-through;
+}
+
+.btn-submit {
+    background-color: var(--dcam-green);
+    color: var(--dcam-white);
+}
+
+.btn-submit:hover {
+    background-color: hsl(125, 40%, 50%);
+    color: var(--dcam-white);
+}
+
+
+/* IMPORTANCE LEVELS */
+
+.high {
+    background-color: #eb5160;
+}
+
+.medium {
+    background-color: #e08e45;
+}
+
+.low {
+    background-color: #68ace3;
+}
