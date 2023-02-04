@@ -3,7 +3,7 @@ import styles from "./Inventory.module.css";
 import { useState, useEffect, useContext } from "react";
 import { DataContext } from "../FirebaseContext";
 import BooksModal from "../components/BooksModal";
-import { doc, getDocs, query, orderBy, collection, updateDoc, increment, onSnapshot } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
+import { doc, getDocs, query, orderBy, collection, updateDoc, increment, onSnapshot } from "firebase/firestore";
 
 
 

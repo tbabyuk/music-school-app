@@ -1,7 +1,7 @@
 
 import styles from "./Todos.module.css";
 import { useState, useEffect, useContext } from "react";
-import { doc, deleteDoc, getDocs, query, orderBy, addDoc, collection, serverTimestamp, updateDoc } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
+import { doc, deleteDoc, getDocs, query, orderBy, addDoc, collection, serverTimestamp, updateDoc } from "firebase/firestore";
 import { DataContext } from "../FirebaseContext";
 
 

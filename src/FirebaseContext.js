@@ -1,7 +1,6 @@
 // firestore imports
-// CDN firebase and firestore imports
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
 
 
 // createContext
@@ -10,13 +9,13 @@ import { createContext } from "react";
 
 // firebase config
 const firebaseConfig = {
-    apiKey: "AIzaSyDBaoqxXhQlcRHZ-jFDyIEASZ01O6ypd6Q",
-    authDomain: "dcam-todos-react.firebaseapp.com",
-    projectId: "dcam-todos-react",
-    storageBucket: "dcam-todos-react.appspot.com",
-    messagingSenderId: "408866416720",
-    appId: "1:408866416720:web:fde75d87f820e28c8c8955"
-  };
+  apiKey: "AIzaSyA-pcq2kIT7BvgJjMTJ_2hkWvNkJsTgAsE",
+  authDomain: "music-school-app-8394b.firebaseapp.com",
+  projectId: "music-school-app-8394b",
+  storageBucket: "music-school-app-8394b.appspot.com",
+  messagingSenderId: "1078654343061",
+  appId: "1:1078654343061:web:363dd17b2f8762c4e9089c"
+};
 
 
   const app = initializeApp(firebaseConfig);
