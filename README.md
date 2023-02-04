@@ -1,70 +1,37 @@
-# Getting Started with Create React App
+# Music School App (React)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+See it live: [Music School App](https://master--luxury-tapioca-b5e13d.netlify.app/)
 
-## Available Scripts
+## Description
+A react app for a music school business. This app is designed to help the school administrator/front-desk person keep track of various to-do tasks as well as view and manage inventory for products (primarily books) that the music school sells.
 
-In the project directory, you can run:
+## Background & Motivation
+I built this project for a local music school to help with their day-to-day operations. Prior to this app, the front-desk person was using spreadsheets to keep track of their to-do tasks and inventory. With my app, I was able to make things a lot more customized to the school's needs, which has made admin work a lot easier and with everything located in one place.
 
-### `npm start`
+## Technologies
+The current version of this project was done with:
+* HTML
+* Bootstrap + vanilla CSS
+* React (with Routing and Context)
+* Firestore database
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## State of Completion
+First version completed and currently in use. I plan to make improvements and adjustments on an ongoing basis, as per end user's feedback and needs.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Learning Lessons & Challenges
 
-### `npm test`
+### Using Firebase
+I had to figure out how to interact with Firebase in order to persist information when it came to adding, removing, editing, etc. todo tasks, as well as retrieving book info and subtracting book quantity from the book inventory table. This was challenging at times but very rewarding, and made me gain a lot of appreciation for Firestore and Firebase in general. It also deepened my understanding of how a database interacts with the code base.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Context
+I enjoyed figuring out how to use Context to make my database available to the pages that needed it. This was a neat little challenge and I'm very happy about the way I dealt with it. I could have configured Firestore directly in App.js and then made the database available to all the relevant components. But in the interest of keeping App.js leaner and less cluttered, I instead opted to set up Firebase in an external file (FirebaseContext.js) and then just export it from there using Context.
 
-### `npm run build`
+### Inventory Table
+Creating this table was a fun challenge. I made it part of a pop-up modal and had to make sure it was scrollable. Also, I wanted to make it dynamic so that the color of each row would change depending on the stock quantity of each book. I handled this using dynamic styling, applying a particular style to the row depending on the book quantity, which came from the database > state.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Summary
+I had originally made the two pages of the app (todo tasks and inventory) as two separate mini apps. This was the first time I decided to combine them into one app, and I am quite happy with how it turned out! As mentioned earlier, I would like to continue to improve it and add features on a per-need basis. One of the things I am planning to add is a real-time chatroom where different school employees, or school owner/employee can communmicate without having to be in the same physical location.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
