@@ -125,12 +125,6 @@ body {
     color: white;
 }
 
-.modal-table-row td:nth-child(1), th:nth-child(1),
-.modal-table-row td:nth-child(3), th:nth-child(3),
-.modal-table-row td:nth-child(4), th:nth-child(4)
-{
-    text-align: center;
-}
 
 .close-modal-button {
     position: absolute;
@@ -146,7 +140,9 @@ body {
     justify-content: space-evenly;
 }
 
-.quantity-cell button {
+.quantity-cell button,
+.delete-btn
+{
     border: none;
     padding: 0 5px;
     font-size: 0.9rem;
@@ -162,6 +158,23 @@ body {
 
 .quantity-green {
     background-color: #b4f5b8;
+}
+
+
+/* SALES LOG TABLE STYLING */
+
+.sales-table-header-row {
+    background: #005CB8;
+    color: white;
+}
+
+.sales-table-data-row {
+    text-align: left;
+}
+
+.sales-table-row th:nth-child(1), td:nth-child(1)
+{
+    text-align: center;
 }
 
 

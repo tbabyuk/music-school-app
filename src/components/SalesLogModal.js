@@ -2,11 +2,11 @@
 import styles from "../pages/inventory/Inventory.module.css";
 
 
-const BooksModal = ({ books, setBooksModal, handleSubtract }) => {
+const SalesLogModal = ({ sales, setSalesLogModal, handleDeleteSale }) => {
 
     const handleCloseModal = (e) => {
         if(e.target.id === "modal-overlay" || e.target.id === "close-modal-button") {
-            setBooksModal(prev => false)
+            setSalesLogModal(prev => false)
         }      
     }
 
@@ -17,21 +17,25 @@ const BooksModal = ({ books, setBooksModal, handleSubtract }) => {
         <div className={`${styles["modal-table-wrapper"]}`}>
         <table>
             <thead>
-                <tr className={`${styles["modal-table-row"]}`}>
+                <tr className={`${styles["sales-table-header-row"]}`}>
                     <th className="text-center">Item #</th>
-                    <th>Book Title</th>
-                    <th>Qty in Stock</th>
+                    <th>Customer</th>
+                    <th>Book Sold</th>
                     <th>Total Price</th>
+                    <th>Date of Sale</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
-            {books && books.map((book, index) => {
+            {sales && sales.map((item, index) => {
                 return (
-                <tr key={index} className={`${styles["modal-table-row"]} ${book.quantity === 0 ? styles["quantity-red"] : book.quantity === 1 ? styles["quantity-yellow"] : styles["quantity-green"]}`} >
+                <tr key={index} className={`${styles["sales-table-data-row"]} ${styles["quantity-green"]}`} >
                     <td>{index + 1}</td>
-                    <td>{book.title}</td>
-                    <td className={styles["quantity-cell"]}><span>{book.quantity}</span><span><button disabled={book.quantity === 0} onClick={() => handleSubtract(book.id, book.title, book.subtotal)}>subtract 1</button></span></td>
-                    <td>{`$${book.subtotal}`}</td>
+                    <td>{item.customer}</td>
+                    <td>{item.title}</td>
+                    <td>${item.total}</td>
+                    <td>{item.time.toDate().toDateString()}</td>
+                    <td><button className={`${styles["delete-btn"]}`} onClick={() => handleDeleteSale(item.id)}>delete</button></td>
                 </tr>
                 )
             })}
@@ -42,4 +46,4 @@ const BooksModal = ({ books, setBooksModal, handleSubtract }) => {
   )
 }
 
-export default BooksModal
+export default SalesLogModal

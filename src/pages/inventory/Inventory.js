@@ -1,9 +1,10 @@
 
 import styles from "./Inventory.module.css";
 import { useState, useEffect, useContext } from "react";
-import { DataContext } from "../FirebaseContext";
-import BooksModal from "../components/BooksModal";
-import { doc, getDocs, query, orderBy, collection, updateDoc, increment, onSnapshot } from "firebase/firestore";
+import { DataContext } from "../../FirebaseContext";
+import BooksModal from "../../components/BooksModal";
+import SalesLogModal from "../../components/SalesLogModal";
+import { doc, addDoc, deleteDoc, getDocs, query, orderBy, collection, updateDoc, increment, onSnapshot, serverTimestamp } from "firebase/firestore";
 
 
 
@@ -15,13 +16,16 @@ const Inventory = () => {
   const [booksModal, setBooksModal] = useState(false);
   const [books, setBooks] = useState([]);
   const [selectedBook, setSelectedBook] = useState("");
+  const [salesLogModal, setSalesLogModal] = useState(false);
+  const [sales, setSales] = useState([]);
 
 
   // get db from Context
   const {db} = useContext(DataContext);
 
   // reference firestore collection
-  const colRef = collection(db, "books");
+  const booksCol = collection(db, "books");
+  const salesCol = collection(db, "sales_log");
 
 
   const handleGetTotal = (e) => {
@@ -36,10 +40,27 @@ const Inventory = () => {
     setSelectedBook(prev => targetBook)
   }
 
-  const handleSubtract = async (id) => {
+  const updateSalesLog = async (title, customer, subtotal) => {
+    await addDoc(salesCol, {
+      title: title,
+      total: (subtotal*1.05).toFixed(2),
+      customer: customer,
+      time: serverTimestamp()
+    })
+  }
+
+  const handleSubtract = async (id, title, subtotal) => {
+    const customer = prompt("Who bought this item?")
     // update target book quantity in firestore
     const docRef = doc(db, 'books', id)
     await updateDoc(docRef, { quantity: increment(-1)})
+    updateSalesLog(title, customer, subtotal)
+  }
+
+  const handleDeleteSale = async (id) => {
+      const docRef = doc(db, 'sales_log', id)
+      await deleteDoc(docRef)
+      console.log("document deleted")
   }
 
   const handleMessage = () => {
@@ -50,11 +71,11 @@ const Inventory = () => {
   useEffect(() => {
 
     // update books state on initial render and then with every change to db data
-    onSnapshot(colRef, async (snapshot) => {
+    onSnapshot(booksCol, async (snapshot) => {
 
       let booksArray = [];
   
-      const q = query(colRef, orderBy("order", "asc"));
+      const q = query(booksCol, orderBy("order", "asc"));
       const data = await getDocs(q);
       data.docs.forEach((item) => {
           booksArray.push({...item.data(), id: item.id})
@@ -64,6 +85,25 @@ const Inventory = () => {
     })
 
     }, []);
+
+
+    useEffect(() => {
+
+      // update sales log state on initial render and then with every change to sales data
+      onSnapshot(salesCol, async (snapshot) => {
+  
+        let salesArray = [];
+    
+        const q = query(salesCol, orderBy("time", "desc"));
+        const data = await getDocs(q);
+        data.docs.forEach((item) => {
+            salesArray.push({...item.data(), id: item.id})
+        })
+  
+        setSales(prev => salesArray);
+      })
+  
+      }, []);
 
   
   return (
@@ -180,7 +220,6 @@ const Inventory = () => {
               <button 
                 className={`${styles["inventory-btn"]}`}
                 onClick={handleMessage}
-
 >                NOTEBOOKS
               </button>
             </div>
@@ -194,7 +233,7 @@ const Inventory = () => {
             <div>
               <button 
                 className={`${styles["inventory-btn"]}`}
-                onClick={handleMessage}
+                onClick={() => setSalesLogModal(true)}
 >                SALES LOG
               </button>
             </div>
@@ -203,6 +242,9 @@ const Inventory = () => {
         {/* Books Modal */}
         {booksModal && 
             <BooksModal books={books} setBooksModal={setBooksModal} handleSubtract={handleSubtract} />
+        }
+        {salesLogModal && 
+            <SalesLogModal sales={sales} setSalesLogModal={setSalesLogModal} handleDeleteSale={handleDeleteSale} />
         }
 
     </div>

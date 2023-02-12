@@ -1,7 +1,7 @@
 import Navbar from "./components/Navbar";
-import Home from "./pages/Home";
-import Inventory from "./pages/Inventory";
-import Todos from "./pages/Todos";
+import Home from "./pages/home/Home";
+import Inventory from "./pages/inventory/Inventory";
+import Todos from "./pages/todos/Todos";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import "./index.css"
 import FirebaseContextProvider from "./FirebaseContext";
