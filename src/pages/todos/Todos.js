@@ -94,7 +94,7 @@ const Todos = () => {
                 return item.id === targetItemId
             });
             targetItem.col = "progress"
-            setProgressColumn(prev => [...progressColumn, targetItem ])
+            setProgressColumn(prev => [targetItem, ...progressColumn])
             // remove target item from todo column
             setTodoColumn(prev => todoColumn.filter((item) => item.id !== targetItemId))
 
@@ -111,7 +111,7 @@ const Todos = () => {
                 return item.id === targetItemId
             });
             targetItem.col = "completed"
-            setCompletedColumn(prev => [...completedColumn, targetItem ])
+            setCompletedColumn(prev => [targetItem, ...completedColumn])
             // remove target item from progress column
             setProgressColumn(prev => progressColumn.filter((item) => item.id !== targetItemId))
         }
@@ -132,7 +132,7 @@ const Todos = () => {
             })
 
             setTodoColumn(prev => {
-                return [...todoColumn, {content, importance, id: newDoc.id, col: "todo"}]
+                return [{content, importance, id: newDoc.id, col: "todo"}, ...todoColumn]
             });
 
             setContent("");
@@ -153,7 +153,7 @@ const Todos = () => {
             let completedItems = [];
 
 
-            const q = query(colRef, orderBy("created_at", "asc"));
+            const q = query(colRef, orderBy("created_at", "desc"));
             const data = await getDocs(q);
             data.docs.forEach((item) => {
                 if(item.data().col === "todo") {
@@ -173,7 +173,7 @@ const Todos = () => {
     
 
   return (
-    <div className="container mt-5 test">
+    <div className="container-fluid mt-5 test">
         <form className={`row ${styles["todos-header"]}`} onSubmit={handleSubmit}>
             <div className="col-12 col-lg-4 py-3">
                 <input 
@@ -225,7 +225,7 @@ const Todos = () => {
             </div>
         </form>
 
-        <div className={`container ${styles["todos-table"]}`}>
+        <div className={`container-fluid ${styles["todos-table"]}`}>
             <div className={`row ${styles["todos-table-header"]}`}>
                     <div className="col d-none d-lg-block text-center">Items To Do</div>
                     <div className="col d-none d-lg-block text-center">Items In Progress</div>
