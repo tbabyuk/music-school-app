@@ -1,11 +1,10 @@
 
 import styles from "./Inventory.module.css";
 import { useState, useEffect, useContext } from "react";
-import { DataContext } from "../../FirebaseContext";
+import { DataContext } from "../../context/FirebaseContext";
 import BooksModal from "../../components/BooksModal";
 import SalesLogModal from "../../components/SalesLogModal";
 import { doc, addDoc, deleteDoc, getDocs, query, orderBy, collection, updateDoc, increment, onSnapshot, serverTimestamp } from "firebase/firestore";
-
 
 
 const Inventory = () => {

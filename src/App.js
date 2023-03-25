@@ -4,7 +4,7 @@ import Inventory from "./pages/inventory/Inventory";
 import Todos from "./pages/todos/Todos";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import "./index.css"
-import FirebaseContextProvider from "./FirebaseContext";
+import FirebaseContextProvider from "./context/FirebaseContext";
 
 
 function App() {
