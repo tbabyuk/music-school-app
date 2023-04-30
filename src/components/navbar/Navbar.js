@@ -13,7 +13,7 @@ const Navbar = () => {
     <header>
       <div className={styles["top-nav"]}>
         <span className="material-symbols-outlined" id={styles.hamburger} onClick={() => setSidenav(!sidenav)}>{sidenav ? "close" : "menu"}</span>        
-        <img src="dcam-logo-white.png" alt="Da Capo Academy of Music Logo" />
+        <NavLink to="/"><img src="dcam-logo-white.png" alt="Da Capo Academy of Music Logo" /></NavLink>
       </div>
       {sidenav &&
           <motion.nav className={styles["side-nav"]} animate={{x: 200}}>
