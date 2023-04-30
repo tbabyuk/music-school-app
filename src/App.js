@@ -1,4 +1,4 @@
-import Navbar from "./components/Navbar";
+import Navbar from "./components/navbar/Navbar";
 import Home from "./pages/home/Home";
 import Inventory from "./pages/inventory/Inventory";
 import Todos from "./pages/todos/Todos";

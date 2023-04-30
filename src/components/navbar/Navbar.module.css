@@ -1,0 +1,58 @@
+
+.top-nav {
+    height: 50px;
+    background: var(--dcam-brand);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+#hamburger {
+    color: var(--dcam-white);
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.top-nav img {
+    width: 130px;
+}
+
+/* side nav */
+
+.side-nav {
+    width: 200px;
+    background: rgba(0, 0, 0, 0.8);
+    height: calc(100vh - 50px);
+    position: absolute;
+    left: -200px;
+    display: flex;
+    justify-content: center;
+    padding-top: 40px;
+}
+
+.side-nav ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.side-nav a {
+    color: var(--dcam-white);
+    text-decoration: none;
+}
+
+.side-nav a:hover {
+    color: var(--dcam-brand);
+}
+
+.side-nav a:active {
+    color: var(--dcam-brand);
+}
+
+.side-nav ul li {
+    margin-bottom: 30px;
+}
+
+
+
+

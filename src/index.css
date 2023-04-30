@@ -12,18 +12,18 @@
     --dcam-red: #eb5160;
     --dcam-gray: #bfbfbf;
     --dcam-white: #fdf5e6;
+    --dcam-brand: #c45429;
 }
 
 body {
     background: #fdf5e6;
 }
 
+/* header a.active {
+    color: yellow;
+} */
 
-/* NAVBAR STYLING */
 
-.navbar-brand img {
-    width: 150px;
-}
 
 
 
